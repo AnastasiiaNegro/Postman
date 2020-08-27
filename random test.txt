@@ -1,0 +1,10 @@
+https://postman-echo.com/get?userId={{$randomInt}}
+
+var jsonData = JSON.parse(responseBody);
+tests["Correct UserId is returned"] = jsonData.userId === environment.$randomInt;
+
+
+pm.test("Check host", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData.headers.host).to.eql("postman-echo.com");
+});

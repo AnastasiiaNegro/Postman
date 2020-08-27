@@ -1,0 +1,37 @@
+https://postman-echo.com/get?userId=1
+
+pm.test("Check body dates", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData.args.userId).to.eql("1");
+    pm.expect(jsonData.headers.host).to.eql("postman-echo.com");
+    pm.expect(jsonData.headers.accept).to.eql("*/*");
+    pm.expect(jsonData.url).to.eql("https://postman-echo.com/get?userId=1");
+});
+
+pm.test("Body matches string", function () {
+    pm.expect(pm.response.text()).to.include("x-forwarded-proto");
+    pm.expect(pm.response.text()).to.include("x-amzn-trace-id");
+});
+
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+        if (status = 200){
+            console.log("OK")}
+            else{
+                console.log("Some problems with status code")
+}
+    });
+
+pm.test("Content-Type(header) is present", function () {
+    pm.response.to.have.header("Content-Type");
+    pm.response.to.have.header("ETag");
+});
+
+pm.test("Response time", function () {
+    pm.expect(pm.response.responseTime).to.be.below(200);
+    if(responseTime<140){
+        console.log("Response time is less than 140ms")}
+        else{
+            console.log("Response time is more than 140ms!!!")
+        }
+    });
