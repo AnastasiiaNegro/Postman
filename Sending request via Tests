@@ -1,0 +1,32 @@
+      pm.sendRequest({
+  url: pm.globals.get("URL1")+pm.globals.get("UID")+pm.globals.get("URL2"),
+  method: 'POST',
+  headers: pm.globals.get("Authorization"),
+  body: { 
+    "start_date": "2021-08-04T00:00:00.00Z" },
+
+  function (err, response){
+    console.log("Response"+response.json())
+  }
+        });
+        
+        
+        
+        
+        
+        pm.sendRequest({
+    url: {{go-api-host}}/oauth/token,
+    method: 'POST',
+    header: {
+        'Content-Type': 'multipart/form-data',
+          },
+      body: {
+          mode: 'formdata',
+          formdata: [
+            {key: "client_id", value: {yourValue}, disabled: false, description: {content:"", type:"text/plain"}},
+            {key: "client_secret", value: {yourValue}, disabled: false, description: {content:"", type:"text/plain"}}
+        ]
+      }
+},  function(err, response) {
+  const jsonResponse = response.json();
+});
