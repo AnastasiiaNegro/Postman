@@ -1,0 +1,7 @@
+let bodyData = pm.response.json()
+
+let ValueOfUid = bodyData[11].uid   // [11].uid - json path for value from body
+
+console.log(ValueOfUid)
+
+pm.globals.set("UID", ValueOfUid);
