@@ -1,0 +1,13 @@
+// random generator function
+function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min)) + min;
+}
+// generate the random value
+const myval = getRandomInt(0,1000);
+// set the value into the global variable
+pm.globals.set('value', myval);
+
+// to see it in console
+console.log(myval);
